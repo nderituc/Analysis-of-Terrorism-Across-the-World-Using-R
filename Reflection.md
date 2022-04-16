@@ -1,206 +1,57 @@
 
----
-title: "Untitled"
-output: html_document
-date: '2022-04-14'
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# Reflection
+
+My most successful parts of the course have been.
+* Use of github and markdown.
+* Data visualization with with ggplot2.
+* Data transformation e.g pivoting.
+* use of tibbles,data import and tidying data.
+
+
+My most exciting 
+* Data visualisation
+* Github.
+* Data transformation.
+* Tidying data.
+
+Challenges
+* Creating facets.
+* Creating data pipes.
+* position adjustment on statistical transformation.
+* 
+
+I have learnt how to-
 ```
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-```{r}
-#install.packages("tidyverse")
-```
-
-```{r}
-library(tidyverse)
-```
-
-
-#Importing and reading data
-
-```{r}
-library(readr)
-share_of_deaths_by_cause <- read_csv("share-of-deaths-by-cause.csv")
-View(share_of_deaths_by_cause)
-```
-
-
-
-#Visiualization with ggplot
-```{r creating a ggplot}
-ggplot(data =share_of_deaths_by_cause) + 
-  geom_point(mapping = aes(x = Year, y = Terrorism))
-```
-
-```{r aesthetic mapping}
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_point(mapping = aes(x = Year, y = Terrorism, color = Continent))
-```
-
-```{r creating a geom point}
-# left
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_point(mapping = aes(x = Year, y = Terrorism))
-
-# right
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_smooth(mapping = aes(x = Year, y = Terrorism))
-```
-
-```{r ggplot}
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_point(mapping = aes(x = Year, y = Terrorism)) +
-  geom_smooth(mapping = aes(x = Year, y = Terrorism))
+* Create or fork a git project,clone it to R-studio and commit it back to git.
+* Install r packages and load them using install.package() and library() functuions respectively.
+* Tidy data using pivot longer and pivot wider and also separating data into multiple columns as well as uniting columns using separate() and unite() functions respectively.
+* Do data transformation using various functions of the dplyr package ie
+* import data and tidy
+* filter() to pick observations by value.
+* arrange() to reorder rows.
+* select() to pick variables by name.
+* mutate() to create variables within existing variables.
+* summarise() to  put values in a single summary.
+* group_by haven't used but i know it exists.
+* Do data visualization using ggplot2 package and ggplot function.I can work with various geoms and map many  aesthetics on the plots.
+* Read data using read_csv function.
+* create data pipes.
+* Do data summaries in addition to visualization.
+* Combine data from various sources.
+* How write R programs for simulations from probability models and randomization-based experiments.
+*  How to use source documentation and other resources to troubleshoot and extend R programs.Not so sure about this but i can extend R programs using source documentation.
 ```
 
 
-#STatistical Transormations
-```{r statistical transformations}
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_bar(mapping = aes(x = Year))
-```
+Course objectives achieved
+* To import,manage and clean data.Not sure about managing data but i can import and clean data efficiently.
+* I can create summaries of data and do various visualizations.
+* I can write clear R programs and document them.
+* How write R programs for simulations from probability models and randomization-based experiments.
+* How to use source documentation and other resources to troubleshoot and extend R programs.Not so sure about this but i can extend R programs using source documentation.
 
-```{r}
-ggplot(data =share_of_deaths_by_cause) +
-  geom_bar(mapping = aes(x = Year, y = Terrorism), stat = "identity")
-```
-
-```{r}
-ggplot(data = share_of_deaths_by_cause) + 
-  stat_summary(
-    mapping = aes(x = Year, y = Terrorism),
-    fun.min = min,
-    fun.max = max,
-    fun = median
-  )
-```
-
-```{r}
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_bar(mapping = aes(x = Continent, colour = Continent))
-ggplot(data = share_of_deaths_by_cause) + 
-  geom_bar(mapping = aes(x = Continent, fill = Continent))
-```
-
-#filter by  rows
-```{r}
-filter(share_of_deaths_by_cause, Year ==2007, Terrorism>=0.5)
-
-```
-
-#arrange()
-```{r}
-arrange(share_of_deaths_by_cause, Year, Continent, Terrorism)
-```
-#select Columns
-```{r}
-select(share_of_deaths_by_cause, Year, Continent, Terrorism)
-```
-#summarise
-```{r}
-share_of_deaths_by_cause%>%group_by(Country)%>%summarise(new_Terrorism=mean(Terrorism, na.rm = TRUE))
-```
-#MODEL
-
-```{r}
-library(tidyverse)
-
-library(modelr)
-options(na.action = na.warn)
-```
-#Creating taking a look of data sim1 contained in package moderl
-```{r}
-ggplot(sim1, aes(x, y)) + 
-  geom_point()
-```
-#Creating a model to capture pattern in the data
-```{r}
-mydata <- tibble(
-  a1 = runif(250, -20, 40),
-  a2 = runif(250, -5, 5)
-)
-
-ggplot(sim1, aes(x, y)) + 
-  geom_abline(aes(intercept = a1, slope = a2), data = mydata, alpha = 1/4) +
-  geom_point() 
-```
-#Finding a good model from the ones created in above code by finding the model whose values have  the shortest distance from actual values of the data that is y values given by the data and actual y values of the data
+Generally i feel am at a good position in this class.
 
 
-```{r}
-model1 <- function(a, data) {
-  a[1] + data$x * a[2]
-}
-model1(c(7, 1.5), sim1)
-measure_distance <- function(mod, data) {
-  diff <- data$y - model1(mod, data)
-  sqrt(mean(diff ^ 2))
-}
-measure_distance(c(7, 1.5), sim1)
-#> [1] 2.665212
 
-
-sim1_dist <- function(a1, a2) {
-  measure_distance(c(a1, a2), sim1)
-}
-
-mydata <- mydata %>% 
-  mutate(dist = purrr::map2_dbl(a1, a2, sim1_dist))
-mydata
-
-```
-
-#Now we overly the best ten models to the data
-```{r}
-ggplot(sim1, aes(x, y)) + 
-  geom_point(size = 2, colour = "grey30") + 
-  geom_abline(
-    aes(intercept = a1, slope = a2, colour = -dist), 
-    data = filter(mydata, rank(dist) <= 10)
-  )
-```
-
-#visualize the models with a scatterplot
-```{r}
-ggplot(mydata, aes(a1, a2)) +
-  geom_point(data = filter(mydata, rank(dist) <= 10), size = 4, colour = "red") +
-  geom_point(aes(colour = -dist))
-```
-
-#visualising predictions from models
-#we make a tibble of one variable
-```{r}
-q <- sim1 %>% 
-  data_grid(x) 
-q
-
-```
-#we use modelr::add_predictions() function which takes a data frame and a model and then adds a column of predictions to the dataframe.We first create a linear model
-```{r}
-sim1_mod <- lm(y ~ x, data = sim1)
-
-q<- q %>% 
-  add_predictions(sim1_mod) 
-q
-```
